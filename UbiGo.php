@@ -6,7 +6,7 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 
 $wgExtensionCredits['other'][] = array(
     'path' => __FILE__,
-    'name' => 'UbiGoExtensions',
+    'name' => 'UbiGo',
     'author' => 'Tobias Haider', 
     'url' => 'http://www.ubigo.at', 
     'descriptionmsg' => 'ubigo-desc',

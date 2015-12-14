@@ -89,3 +89,10 @@ body {
 .btn-primary:hover {
 	  background-color: #54278f;
 }
+
+/* fixed sidebar */
+@media (min-width:992px) {
+	.sidebar-right-wrapper {
+		position:fixed;
+	}
+}
