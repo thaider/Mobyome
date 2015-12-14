@@ -21,18 +21,16 @@ class ApiBVdistances extends ApiBase {
 	public function execute() {
 		global $wgUser, $egMapsDefaultGeoService, $egMapsDistanceDecimals, $egMapsDistanceUnit;
 		
-		if ( !$wgUser->isAllowed( 'bvdistances' ) || $wgUser->isBlocked() ) {
-			$this->dieUsageMsg( array( 'badaccess-groups' ) );
-		}			
-		
 		$params = $this->extractRequestParams();
+		
+		$geoCoordinateParser = new DataValues\Geo\Parsers\GeoCoordinateParser();
 		
 		$results = array();
 				
-		if ( MapsGeocoders::canGeocode() ) {
-			$location = MapsGeocoders::attemptToGeocode( $params['location'], $egMapsDefaultGeoService );
+		if ( Maps\Geocoders::canGeocode() ) {
+			$location = Maps\Geocoders::attemptToGeocode( $params['location'], $egMapsDefaultGeoService );
 		} else {
-			$location = MapsCoordinateParser::parseCoordinates( $params['location'] );
+			$location = $geoCoordinateParser->parse( $params['location'] );
 		}
 
     $query = "{{#ask:[[Bundesland::+]][[aktiv::wahr]][[Lage::+]]|?Lage|?=Name|mainlabel=-|format=array|link=none|headers=plain|headersep==|sep=<BV>}}";
@@ -53,7 +51,7 @@ class ApiBVdistances extends ApiBase {
     		$prop = explode( '=', $prop );
     		$bedarfsverkehre[$key][$prop[0]] = $prop[1];
     		}
-			$bvlocation = MapsCoordinateParser::parseCoordinates( $bedarfsverkehre[$key]['Lage'] );
+			$bvlocation = $geoCoordinateParser->parse( $bedarfsverkehre[$key]['Lage'] );
 			if ( $location && $bvlocation ) {
 				$bedarfsverkehre[$key]['Distanz'] = MapsGeoFunctions::calculateDistance( $location, $bvlocation );
 				} else {

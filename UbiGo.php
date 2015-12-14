@@ -44,3 +44,20 @@ $wgResourceModules['ext.nearest'] = array(
 	// has $wgExtensionAssetsPath configured:
 	'remoteExtPath' => 'UbiGo'
 );
+
+
+$wgResourceModules['xxx.ubigo.styles'] = array(
+  'styles' => array(
+		'css/ext.ubigo.css' => array( 'media' => 'screen' )
+	),
+  'localBasePath' => __DIR__,
+  'remoteExtPath' => 'UbiGo',
+);
+
+$wgTweekiSkinUseBootstrapTheme = false;
+$wgTweekiSkinCustomCSS[] = 'xxx.ubigo.styles';
+$wgTweekiSkinStyles = array( 
+	'skins.tweeki.bootstrap.styles',
+	'skins.tweeki.styles',
+	'skins.tweeki.corrections.styles'
+);	

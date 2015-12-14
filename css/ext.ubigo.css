@@ -1,0 +1,91 @@
+@font-face {
+    font-family: 'open_sansregular';
+    src: url('../fonts/opensans_regular_macroman/OpenSans-Regular-webfont.eot');
+    src: url('../fonts/opensans_regular_macroman/OpenSans-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/opensans_regular_macroman/OpenSans-Regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+	font-family: 'open_sansregular', "Helvetica Neue",Helvetica,Arial,sans-serif;
+	}
+
+
+#footer a {
+	color: #777;
+	}
+#footer a:hover {
+	text-decoration: none;
+	color: #000;
+	}
+
+.ubigo-footer-seperator {
+	margin: 5px;
+	}
+
+/* ubigo.at */
+
+.mailintro {
+    color: #666666;
+    font-size: small;
+    margin-bottom: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    text-align: center;
+    max-width: 600px;
+    padding: 0 15px;
+}
+
+#footer #footer-icons {
+    display: inline-block;
+}
+
+.non-public {
+    display:none;
+}
+
+.toc {
+   display:none;
+}
+
+body {
+	background-color: #fff;
+	}
+
+/*
+.navbar-default .navbar-nav > .open > a, 
+.navbar-default .navbar-nav > .open > a:hover, 
+.navbar-default .navbar-nav > .open > a:focus {
+    background-color: #cbc9e2;
+}
+.navbar-default {
+    background-color: #efe9f9;
+    border-color: #cbc9e2;
+}
+*/
+
+#footer {
+	background-color: #f1f1f1;
+	}
+	
+#footer > div {
+	display: inline-block;
+}
+
+.panel-primary > .panel-heading {
+    background-color: #6a51a3;
+    border-color: #6a51a3;
+    text-align: center;
+}
+.panel-primary {
+    border-color: #6a51a3;
+}
+.btn-primary {
+    background-color: #6a51a3;
+    border-color: #54278f;
+}
+.btn-primary:hover {
+	  background-color: #54278f;
+}
