@@ -33,6 +33,7 @@ foreach ( $wgGroupPermissions as $group => $rights ) {
 }
 
 $wgResourceModules['ext.nearest'] = array(
+	'position' => 'bottom',
 	// JavaScript and CSS styles. To combine multiple files, just list them as an array.
 	'scripts' => array( 'js/ext.ubigo.nearest.js' ),
 	'styles' => array( 'css/ext.ubigo.nearest.css' ),
@@ -47,11 +48,12 @@ $wgResourceModules['ext.nearest'] = array(
 
 
 $wgResourceModules['xxx.ubigo.styles'] = array(
-  'styles' => array(
+	'position' => 'top',
+	'styles' => array(
 		'css/ext.ubigo.css' => array( 'media' => 'screen' )
 	),
-  'localBasePath' => __DIR__,
-  'remoteExtPath' => 'UbiGo',
+	'localBasePath' => __DIR__,
+	'remoteExtPath' => 'UbiGo',
 );
 
 $wgTweekiSkinUseBootstrapTheme = false;
