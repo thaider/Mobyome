@@ -50,9 +50,9 @@ jQuery( function( $ ) {
 /*			$( '#nearestBV' ).html( '<h4>nächstgelegene Bedarfsverkehre</h4>' ); */
 			$( '#nearestBV' ).html( '' );
 			$.each( data.results, function( key, bv ) {
-				$distanz = '<div class="distance">' + Math.ceil( bv.Distanz / 5000 ) * 5 + '</div>';
-				$name = '<div class="name"><a href="index.php?title=' + encodeURIComponent( bv.Name ) + '">' + bv.Name + '</a></div>';
-				$( '#nearestBV' ).append( '<div>' + $distanz + $name + '</div>' );
+				distanz = '<div class="distance">' + Math.ceil( bv.Distanz / 5000 ) * 5 + '</div>';
+				name = '<div class="name"><a href="' + mw.util.getUrl( bv.Name ) + '">' + bv.Name + '</a></div>';
+				$( '#nearestBV' ).append( '<div>' + distanz + name + '</div>' );
 				});
 			});
 		}
