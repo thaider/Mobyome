@@ -18,4 +18,9 @@ class UbiGoHooks
 		return '<div id="nearestBV"></div>';
 	}
 	
+
+	static function siteBodyClasses( $skinTweeki, &$additionalBodyClasses ) {
+		$additionalBodyClasses[] = 'site-' . $GLOBALS['wgSitename'];
+		return true;
+	}
 }

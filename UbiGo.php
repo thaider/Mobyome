@@ -17,6 +17,7 @@ $wgExtensionCredits['other'][] = array(
 $wgAutoloadClasses['UbiGoHooks'] = __DIR__ . '/UbiGo.hooks.php';
 
 $wgHooks['ParserFirstCallInit'][] = 'UbiGoHooks::nearestSetup';
+$wgHooks['SkinTweekiAdditionalBodyClasses'][] = 'UbiGoHooks::siteBodyClasses';
 
 $wgMessagesDirs['UbiGo'] = __DIR__ . '/i18n';
 
