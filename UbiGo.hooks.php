@@ -12,8 +12,14 @@ class UbiGoHooks
 		$parser->setHook( 'nearest', 'UbiGoHooks::nearestRender' );
 		$parser->setFunctionHook( 'konto', 'UbiGoHooks::konto' );
 		$parser->setFunctionHook( 'money', 'UbiGoHooks::money' );
+		$parser->setFunctionHook( 'quellenlink', 'UbiGoHooks::quellenlink' );
 		return true;
 	}
+
+	static function onBeforePageDisplay( OutputPage &$out, Skin &$skin ) {
+		$out->addModules( 'ext.ubigo' );
+	}
+		
  
 	static function nearestRender( $input, array $args, Parser $parser, PPFrame $frame ) {
 		$parser->getOutput()->addModules( 'ext.nearest' );
@@ -83,4 +89,18 @@ class UbiGoHooks
 		$additionalBodyClasses[] = 'site-' . $GLOBALS['wgSitename'];
 		return true;
 	}
+	
+
+	/**
+	 * Quelle als Link zurückgeben (falls es sich um Link handelt)
+	 *
+	 * @param String $quelle
+	 */
+	static function quellenlink( $parser, $quelle ) {
+		if( strpos( $quelle, 'http' ) === 0 ) {
+			$quelle = '[' . $quelle . ']';
+		}
+		return $quelle;
+	}
+
 }

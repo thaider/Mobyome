@@ -17,6 +17,7 @@ $wgExtensionCredits['other'][] = array(
 $wgAutoloadClasses['UbiGoHooks'] = __DIR__ . '/UbiGo.hooks.php';
 
 $wgHooks['ParserFirstCallInit'][] = 'UbiGoHooks::onParserFirstCallInit';
+$wgHooks['BeforePageDisplay'][] = 'UbiGoHooks::onBeforePageDisplay';
 $wgHooks['SkinTweekiAdditionalBodyClasses'][] = 'UbiGoHooks::siteBodyClasses';
 
 $wgExtensionMessagesFiles['UbiGoMagic'] = __DIR__ . '/UbiGo.i18n.magic.php';
@@ -48,6 +49,12 @@ $wgResourceModules['ext.nearest'] = array(
 	'remoteExtPath' => 'UbiGo'
 );
 
+$wgResourceModules['ext.ubigo'] = array(
+	'position' => 'bottom',
+	'scripts' => array( 'js/ext.ubigo.js' ),
+	'localBasePath' => __DIR__,
+	'remoteExtPath' => 'UbiGo'
+);
 
 $wgResourceModules['xxx.ubigo.styles'] = array(
 	'position' => 'top',
