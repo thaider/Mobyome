@@ -84,6 +84,7 @@ class UbiGoHooks
 		
 		return $betrag;
 	}
+
 	
 	static function siteBodyClasses( $skinTweeki, &$additionalBodyClasses ) {
 		$additionalBodyClasses[] = 'site-' . $GLOBALS['wgSitename'];
@@ -103,4 +104,33 @@ class UbiGoHooks
 		return $quelle;
 	}
 
+
+	/**
+	 * Benachrichtigung an alle, wenn neue Seite hinzugefügt wird
+	 */
+	static function onArticleInsertComplete( &$article, User &$user, $text, $summary, $minoredit, $watchthis, $sectionanchor, &$flags, Revision $revision ) {
+		$senderAddress = MailAddress::newFromUser( $user );
+		$recipientAddress = new MailAddress( 'sharedautonomy@ubigo.at', 'Shared Autonomy-Verteiler' );
+		$body = 'Auf der Plattform http://sharedautonomy.ubigo.at wurde von ' . $user->getName() . ' eine neue Seite mit dem Titel ' . $article->getTitle()->getText() . ' erstellt.
+
+siehe ' . $article->getTitle()->getFullURL();
+		// TODO: wieder einschalten
+		if( false && $article->getTitle()->getNamespace() == 0 ) {
+			$mailResult = UserMailer::send( 
+				$recipientAddress,
+				$senderAddress,
+				'neue Seite: ' . $article->getTitle()->getText(), 
+				$body
+			);
+		}
+		/*
+		if( $mailResult->isOK() ) {
+			die( 'mail sent' );
+		} else {
+			die ($mailResult->getMessage() );
+		}
+		*/
+		return true;
+	}
+	
 }
