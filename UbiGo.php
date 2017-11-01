@@ -19,7 +19,6 @@ $wgAutoloadClasses['UbiGoHooks'] = __DIR__ . '/UbiGo.hooks.php';
 $wgHooks['ParserFirstCallInit'][] = 'UbiGoHooks::onParserFirstCallInit';
 $wgHooks['BeforePageDisplay'][] = 'UbiGoHooks::onBeforePageDisplay';
 $wgHooks['SkinTweekiAdditionalBodyClasses'][] = 'UbiGoHooks::siteBodyClasses';
-$wgHooks['ArticleInsertComplete'][] = 'UbiGoHooks::onArticleInsertComplete';
 
 $wgExtensionMessagesFiles['UbiGoMagic'] = __DIR__ . '/UbiGo.i18n.magic.php';
 $wgMessagesDirs['UbiGo'] = __DIR__ . '/i18n';
