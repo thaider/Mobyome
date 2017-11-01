@@ -123,3 +123,29 @@ body {
 	background-color:transparent;
 	margin:0;
 }
+
+/* Roadmaps */
+
+.roadmapliste {
+	text-align:center;
+	font-size:smaller;
+}
+.roadmapliste span + span {
+	padding-left:3px;
+}
+.roadmapliste span + span:before {
+	padding-right:3px;
+	content:"·";
+}
+
+.aufgabe-abgeschlossen {
+	color:#999;
+}
+.aufgabe-verworfen,
+.aufgabe-verschoben{
+	color:#999;
+	text-decoration:line-through;
+}
+.aufgabe-in_umsetzung {
+	font-weight:bold;
+}
