@@ -18,8 +18,21 @@ class UbiGoHooks
 		$parser->setFunctionHook( 'gemeindezahl', 'UbiGoHooks::gemeindezahl' );
 		$parser->setFunctionHook( 'gkz', 'UbiGoHooks::gkz' );
 		$parser->setFunctionHook( 'einzelticketpreissegment', 'UbiGoHooks::einzelticketpreissegment' );
+		$parser->setHook( 'newsletter', 'UbiGoHooks::newsletter' );
 		return true;
 	}
+
+
+	/**
+	 * Newsletter-Formular
+	 */
+	static function newsletter( $parser ) {
+		return '<FORM METHOD="POST" ACTION="https://ml05.ispgateway.de/mailman/subscribe/newsletter_bedarfsverkehr.at">
+		  Email: <INPUT NAME="email" VALUE="" TYPE="text">
+		    <INPUT NAME="email-button" VALUE="Anmelden" TYPE="submit">
+			  </FORM>';
+	}
+
 
 	/**
 	 * Module laden
