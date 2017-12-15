@@ -149,3 +149,21 @@ body {
 .aufgabe-in_umsetzung {
 	font-weight:bold;
 }
+
+
+/* NEWSLETTER */
+.newsletter-beitrag {
+	margin:auto;
+	max-width:650px;
+}
+.newsletter-image {
+	max-width:400px;
+	text-align:center;
+	margin:auto;
+	margin-top:30px;
+	margin-bottom:20px;
+}
+.newsletter-image-caption {
+	font-size:smaller;
+	font-style:italic;
+}
