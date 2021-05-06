@@ -1,2 +1,2 @@
-# UbiGo
-MediaWiki extension for UbiGo
+# Mobyome
+MediaWiki extension for mobyome
