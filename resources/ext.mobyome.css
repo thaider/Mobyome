@@ -1,17 +1,3 @@
-@font-face {
-    font-family: 'open_sansregular';
-    src: url('../fonts/opensans_regular_macroman/OpenSans-Regular-webfont.eot');
-    src: url('../fonts/opensans_regular_macroman/OpenSans-Regular-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../fonts/opensans_regular_macroman/OpenSans-Regular-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
-body {
-	font-family: 'open_sansregular', "Helvetica Neue",Helvetica,Arial,sans-serif;
-	}
-
-
 #footer a {
 	color: #777;
 	}

@@ -1,0 +1,51 @@
+{
+	"name": "Mobyome",
+		"version": "0.0.1",
+		"author": [
+			"Tobias Haider"
+		],
+		"url": "https://www.mobyome.at",
+		"descriptionmsg": "mobyome-desc",
+		"license-name": "GPL-2.0-or-later",
+		"type": "other",
+		"requires": {
+			"MediaWiki": ">= 1.31.0"
+		},
+		"AutoloadClasses": {
+			"MediaWiki\\Extension\\Mobyome\\Hooks": "src/Hooks.php"
+		},
+		"ConfigRegistry": {
+			"mobyome": "GlobalVarConfig::newInstance"
+		},
+		"ExtensionMessagesFiles": {
+			"MobyomeMagic": "Mobyome.i18n.magic.php"
+		},
+		"Hooks": {
+			"ParserFirstCallInit": "MediaWiki\\Extension\\Mobyome\\Hooks::onParserFirstCallInit",
+			"BeforePageDisplay": "MediaWiki\\Extension\\Mobyome\\Hooks::onBeforePageDisplay",
+			"SkinTweekiAdditionalBodyClasses": "MediaWiki\\Extension\\Mobyome\\Hooks::onSkinTweekiAdditionalBodyClasses"
+		},
+		"MessagesDirs": {
+			"Mobyome": [
+				"i18n"
+			]
+		},
+		"ResourceModules": {
+			"ext.mobyome": {
+				"scripts": [
+					"ext.mobyome.js"
+				],
+				"styles": [
+					"ext.mobyome.css"
+				],
+				"messages": [],
+				"dependencies": []
+			}
+		},
+		"ResourceFileModulePaths": {
+			"localBasePath": "resources",
+			"remoteExtPath": "Mobyome/resources"
+		},
+		"manifest_version": 2
+}
+
