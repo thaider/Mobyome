@@ -40,9 +40,9 @@ class Hooks {
 	 */
 	static function konto( $parser, $mitglied = NULL, $konto = NULL, $datum = NULL, $verzinst = false ) {
 		if( !is_null( $datum ) && $datum != '') {
-			$datum = new DateTime( $datum );
+			$datum = new \DateTime( $datum );
 		} else {
-			$datum = new DateTime( 'now' );
+			$datum = new \DateTime( 'now' );
 		}
 		$conditions = '[[Kategorie:Arbeitszeit || Verrechnung]]';
 		if( ! is_null( $konto ) && $konto != '' ) {
@@ -89,7 +89,7 @@ class Hooks {
 				continue;
 			}
 			if( $verzinst !== false ) {
-				$buchungsdatum = new DateTime( $buchung['Datum'] );
+				$buchungsdatum = new \DateTime( $buchung['Datum'] );
 				$zeitdifferenz = $buchungsdatum->diff( $datum );
 				$buchung['Zeitdifferenz'] = $zeitdifferenz->y;
 				$buchung['Zinsbetrag'] = $buchung['Betrag'] * pow( 1.04, $zeitdifferenz->days/365 );
@@ -115,9 +115,9 @@ class Hooks {
 	 */
 	static function zinsen( $parser, $mitglied = NULL, $datum = NULL ) {
 		if( !is_null( $datum ) ) {
-			$datum = new DateTime( $datum );
+			$datum = new \DateTime( $datum );
 		} else {
-			$datum = new DateTime( 'now' );
+			$datum = new \DateTime( 'now' );
 		}
 		$conditions = '[[Kategorie:Arbeitszeit || Verrechnung]]';
 		if( isset( self::$cache[$conditions] ) ) {
@@ -160,7 +160,7 @@ class Hooks {
 			if( ! is_null( $mitglied ) && $mitglied != '' && $buchung['Teammitglied'] != 'Benutzer:' . $mitglied ) {
 				continue;
 			}
-			$buchungsdatum = new DateTime( $buchung['Datum'] );
+			$buchungsdatum = new \DateTime( $buchung['Datum'] );
 			$zeitdifferenz = $buchungsdatum->diff( $datum );
 			$buchung['Zeitdifferenz'] = $zeitdifferenz->y;
 			$buchung['Zinsbetrag'] = $buchung['Betrag'] * pow( 1.04, $zeitdifferenz->days/365 );
