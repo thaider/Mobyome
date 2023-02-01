@@ -35,10 +35,10 @@
 				"scripts": [
 					"ext.mobyome.js"
 				],
-				"styles": [
-					"ext.mobyome.css"
+				"messages": [
+					"Stundensatz",
+					"Auszahlungsstundensatz"
 				],
-				"messages": [],
 				"dependencies": []
 			}
 		},

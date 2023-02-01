@@ -9,7 +9,8 @@ $( document ).ready( function() {
 
 $( document ).on('keyup', '.stunden', function(e) {
 	var stunden = parseFloat( $(this).val().replace(',','.') );
-	var text = '(von maximal € ' + ( Math.round( stunden * 15 ) ) + ',-)';
+	var stundensatz = mw.message('Auszahlungsstundensatz').text();
+	var text = '(von maximal € ' + ( Math.round( stunden * stundensatz ) ) + ',-)';
 	if( ! stunden > 0 ) {
 		text = '';
 	}
