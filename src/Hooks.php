@@ -89,6 +89,7 @@ class Hooks {
 			if( ! is_null( $mitglied ) && $mitglied != '' && $buchung['Teammitglied'] != 'Benutzer:' . $mitglied ) {
 				continue;
 			}
+			$buchung['Betrag'] = (float)str_replace(',', '.', $buchung['Betrag']);
 			if( $verzinst !== false ) {
 				$buchungsdatum = new \DateTime( $buchung['Datum'] );
 				$zeitdifferenz = $buchungsdatum->diff( $datum );
@@ -161,6 +162,7 @@ class Hooks {
 			if( ! is_null( $mitglied ) && $mitglied != '' && $buchung['Teammitglied'] != 'Benutzer:' . $mitglied ) {
 				continue;
 			}
+			$buchung['Betrag'] = (float)str_replace(',','.',$buchung['Betrag']);
 			$buchungsdatum = new \DateTime( $buchung['Datum'] );
 			$zeitdifferenz = $buchungsdatum->diff( $datum );
 			$buchung['Zeitdifferenz'] = $zeitdifferenz->y;
