@@ -258,7 +258,7 @@ Feb,100,1500";
 			$transaktion = explode( '&lt;PROP&gt;', $transaktion );
 			$start = new \DateTime( $transaktion[0] );
 			$ende = new \DateTime( $transaktion[1] );
-			$amount = $transaktion[2];
+			$amount = (float) str_replace( ',', '.', $transaktion[2] );
 			$frequenz = $transaktion[3];
 			$text = $transaktion[4];
 			if( $frequenz == 'once' ) {
